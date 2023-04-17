@@ -3,7 +3,7 @@ create database veterinaria;
 use veterinaria;
 
 create table informacion(
-id int not null,
+id int,
 nombre varchar(30) not null,
 años int not null,
 raza  varchar(30),

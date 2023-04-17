@@ -15,6 +15,7 @@ public class AnimalServicio{
 
 
     public void printAnimal() throws Exception {
+
         try {
             List<Animal> animals = animalDao.getAnimal();
 
@@ -22,7 +23,7 @@ public class AnimalServicio{
                 throw new Exception("No existen registros");
             } else {
                 System.out.println("LIST ANIMALS");
-                System.out.printf("%-10s%-15s%-15s%-20s\n", "ID", "NOMBRE", "AÑOS",
+                System.out.printf("%-10s%-15s%-15s%-20s\n","ID","NOMBRE", "AÑOS",
                         "RAZA");
 
                 for (Animal animal : animals) {
