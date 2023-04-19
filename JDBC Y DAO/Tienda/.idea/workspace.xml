@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46621d8b-2f64-4d36-9727-22fcc1a31582" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../ScriptBD/Veterinaria JDBC-DAO-EX2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../ScriptBD/Veterinaria JDBC-DAO-EX2.sql" afterDir="false" />
-    </list>
+    <list default="true" id="46621d8b-2f64-4d36-9727-22fcc1a31582" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +23,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2NLaghzNtzTAdkmMwpLtR35cKMS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -37,7 +38,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/maru.DESKTOP-6Q6AET0/OneDrive/Escritorio/ADA - space doubts-backend/Modulo Nuevo - MAVEN/JDBC Y DAO/Tienda"
+    "last_opened_file_path": "C:/Users/maru.DESKTOP-6Q6AET0/OneDrive/Escritorio/ADA - space doubts-backend/Modulo Nuevo - MAVEN/JDBC Y DAO/Tienda",
+    "settings.editor.selected.configurable": "preferences.general"
   }
 }]]></component>
   <component name="RunManager">
@@ -81,5 +83,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
