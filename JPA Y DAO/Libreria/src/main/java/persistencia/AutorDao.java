@@ -34,4 +34,30 @@ public class AutorDao {
             throw new Exception("Error al buscar autor por nombre");
         }
     }
+
+    public Autor ObtenerPorId(Integer Id) throws Exception {
+
+        try {
+            Autor autor = em.find(Autor.class, Id);
+
+            return autor;
+        } catch (Exception e) {
+            throw new Exception("Error al buscar autor por id");
+        }
+    }
+
+    public List<Autor> ObtenerTodos() throws Exception {
+
+        try {
+
+            List<Autor> autores = em.createQuery("SELECT a FROM Autor a", Autor.class)
+                    .getResultList();
+
+            return autores;
+
+        } catch (Exception e) {
+            throw new Exception("Error al buscar autores");
+        }
+    }
 }
+

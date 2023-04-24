@@ -14,7 +14,9 @@ public class MenuServicios {
             System.out.println("\n" + "-----MENU-----\n"
                     + "1) Registrar un Autor.\n"
                     + "2) Búsqueda de Autor por nombre.\n"
-                    + "3) Salir.");
+                    + "3) Búsqueda de Autor por Id o Código de registro.\n"
+                    + "4) Lista de Autores registrados.\n"
+                    + "5) Salir.");
 
             System.out.println("Seleccione una opcion: ");
             String respuesta = entrada.next();
@@ -44,6 +46,18 @@ public class MenuServicios {
                     break;
 
                 case "3":
+                   autorServicio.MostrarAutorPorId();
+                    Menu();
+
+                    break;
+
+                case "4":
+                    autorServicio.MostrarAutores();
+                    Menu();
+
+                    break;
+
+                case "5":
                     System.out.println("Consulta finalizada.");
                     break;
 

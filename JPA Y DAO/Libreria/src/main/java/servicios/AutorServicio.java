@@ -58,4 +58,49 @@ public class AutorServicio {
         }
 
     }
+
+    public void MostrarAutorPorId() throws Exception {
+
+        try {
+            System.out.println("Ingrese el Id del autor que desea buscar");
+            Integer Id = entrada.nextInt();
+
+            Autor autor = autordao.ObtenerPorId(Id);
+
+            if (autor == null) {
+                throw new Exception("La lista de autores esta vacia");
+            } else {
+                System.out.println("\n" + "Resultado: ");
+                System.out.printf("%-15s%-40s\n", "Id", "Nombre");
+
+                System.out.printf("%-15s%-40s\n", autor.getId(),
+                        autor.getNombreAutor());
+            }
+        } catch (Exception e) {
+            throw new Exception("No se encontro un autor con ese id");
+        }
+    }
+
+    public void MostrarAutores() throws Exception {
+
+        try {
+            List<Autor> autores = autordao.ObtenerTodos();
+
+            if (autores.isEmpty()) {
+                throw new Exception("No existen autores registrados");
+
+            } else {
+
+                System.out.println("\n" + "Lista de Autores");
+                System.out.printf("%-15s%-40s\n", "ID", "Nombre");
+
+                for (Autor autor : autores) {
+                    System.out.printf("%-15s%-40s\n", autor.getId(),
+                            autor.getNombreAutor());
+                }
+            }
+        }catch (Exception e) {
+            throw e;
+        }
+    }
 }
