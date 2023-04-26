@@ -59,5 +59,36 @@ public class AutorDao {
             throw new Exception("Error al buscar autores");
         }
     }
+
+    public void Actualizar(Autor autor) throws Exception {
+
+        try {
+
+            em.getTransaction().begin();
+            em.merge(autor);
+            em.getTransaction().commit();
+
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            throw new Exception("Error al actualizar autor");
+        }
+
+    }
+
+    public void Eliminar(Autor autor) throws Exception {
+
+        try {
+
+            em.getTransaction().begin();
+            em.remove(autor);
+            em.getTransaction().commit();
+
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            throw new Exception("Error al eliminar autor");
+        }
+
+    }
+
 }
 

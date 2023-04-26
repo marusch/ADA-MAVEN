@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class AutorServicio {
 
-    Scanner entrada = new Scanner(System.in);
+    Scanner entrada = new Scanner(System.in).useDelimiter("\n");
     private AutorDao autordao = new AutorDao();
 
     public void CrearAutor() throws Exception {
@@ -103,4 +103,46 @@ public class AutorServicio {
             throw e;
         }
     }
+
+    public void EditarAutor() throws Exception{
+
+        try{
+
+            System.out.println("Ingrese el Id del autor que desea editar: ");
+            Integer Id = entrada.nextInt();
+
+            Autor autor1 = autordao.ObtenerPorId(Id);
+
+            System.out.println("\n" + "Ingrese el nuevo nombre del autor:");
+            String nombre = entrada.next();
+
+            autor1.setNombreAutor(nombre);
+
+            System.out.println("\n" + "¡Se edito exitosamente!");
+
+            autordao.Actualizar(autor1);
+
+        }catch (Exception e) {
+            throw new Exception("No se encontro un autor con ese ID ");
+        }
+    }
+
+
+    public void EliminarRegistro() throws Exception{
+        try{
+
+            System.out.println("\n" + "Ingrese el Id del autor que desea eliminar: ");
+            Integer Id = entrada.nextInt();
+
+            Autor autor = autordao.ObtenerPorId(Id);
+
+            System.out.println("\n" + "¡Se elimino exitosamente!");
+
+            autordao.Eliminar(autor);
+
+        }catch (Exception e){
+            throw new Exception("No se encontro un autor con ese ID ");
+        }
+    }
+
 }

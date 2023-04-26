@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MenuServicios {
 
-    Scanner entrada = new Scanner(System.in);
+    Scanner entrada = new Scanner(System.in).useDelimiter("\n");
 
     AutorServicio autorServicio = new AutorServicio();
 
@@ -16,7 +16,9 @@ public class MenuServicios {
                     + "2) Búsqueda de Autor por nombre.\n"
                     + "3) Búsqueda de Autor por Id o Código de registro.\n"
                     + "4) Lista de Autores registrados.\n"
-                    + "5) Salir.");
+                    + "5) Editar Autores registrados.\n"
+                    + "6) Eliminar Autores registrados.\n"
+                    + "7) Salir.");
 
             System.out.println("Seleccione una opcion: ");
             String respuesta = entrada.next();
@@ -58,6 +60,18 @@ public class MenuServicios {
                     break;
 
                 case "5":
+                    autorServicio.EditarAutor();
+                    Menu();
+
+                    break;
+
+                case "6":
+                    autorServicio.EliminarRegistro();
+                    Menu();
+
+                    break;
+
+                case "7":
                     System.out.println("Consulta finalizada.");
                     break;
 
