@@ -89,10 +89,8 @@ public class LibroServicio {
                     System.out.printf("%-20s%-25s%-20s%-20s%-20s\n", libro.getIsbn(),
                             libro.getTitulo(), libro.getAutor().getNombreAutor(),
                             libro.getAnio(), libro.getEjemplares());
-
                 }
             }
-
         }catch (Exception e) {
             throw e;
         }
@@ -117,11 +115,9 @@ public class LibroServicio {
                         libro.getTitulo(), libro.getAutor().getNombreAutor(),
                         libro.getAnio(), libro.getEjemplares());
             }
-
         } catch (Exception e) {
             throw new Exception("Error al buscar libro por isbn");
         }
-
     }
 
     public void MostrarLibroPorTitulo() throws Exception {
@@ -144,12 +140,70 @@ public class LibroServicio {
                             libro1.getAnio(), libro1.getEjemplares());
                 }
             }
-
         } catch (Exception e) {
             throw new Exception("Error al buscar libro por titulo");
         }
+    }
+
+    public void MostrarLibroPorAutor() throws Exception {
+
+        try {
+            System.out.println("Ingrese el autor del libro que desea buscar");
+            String autor = entrada.next();
+
+            List<Libro> libro = librodao.ObtenerPorAutor(autor);
+
+            if (libro == null || autor == null) {
+                System.out.println("El libro no existe");
+            } else {
+                System.out.printf("%-20s%-35s%-20s%-20s%-20s\n", "ISBN", "Titulo"
+                        , "Autor", "Año", "Ejemplares");
+
+                for (Libro libro1 : libro) {
+                    System.out.printf("%-20s%-35s%-20s%-20s%-20s\n", libro1.getIsbn(),
+                            libro1.getTitulo(), libro1.getAutor().getNombreAutor(),
+                            libro1.getAnio(), libro1.getEjemplares());
+                }
+            }
+
+        } catch (Exception e) {
+            throw new Exception("Error al buscar libro por autor");
+        }
 
     }
+
+    public void EditarLibro() throws Exception{
+
+        try{
+
+            System.out.println("Ingrese el isbn del libro que desea editar: ");
+            Long isbn = entrada.nextLong();
+
+            Libro libro = librodao.ObtenerPorIsbn(isbn);
+
+            System.out.println("\n" + "Ingrese el nuevo nombre del libro:");
+            String titulo = entrada.next();
+
+            libro.setTitulo(titulo);
+
+            System.out.println("\n" + "Ingrese el año nuevamente del libro:");
+            Integer anio = entrada.nextInt();
+
+            libro.setAnio(anio);
+
+            System.out.println("\n" + "Ingrese la cantidad de ejemplares nuevamente del libro:");
+            Integer ejemplares = entrada.nextInt();
+
+            libro.setEjemplares(ejemplares);
+
+            System.out.println("\n" + "¡Se edito exitosamente!");
+            librodao.Actualizar(libro);
+
+        }catch (Exception e) {
+            throw new Exception("No se encontro un libro con ese ISBN ");
+        }
+    }
+
 
     public void EliminarRegistro() throws Exception{
         try{

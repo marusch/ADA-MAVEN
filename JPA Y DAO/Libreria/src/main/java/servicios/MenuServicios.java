@@ -15,16 +15,18 @@ public class MenuServicios {
             System.out.println("\n" + "-----MENU-----\n"
                     + "1) Registrar un Autor.\n"
                     + "2) Búsqueda de Autor por nombre.\n"
-                    + "3) Búsqueda de Autor por Id o Código de registro.\n"
-                    + "4) Lista de Autores registrados.\n"
-                    + "5) Editar Autores registrados.\n"
-                    + "6) Eliminar Autores registrados.\n"
+                    + "3) Búsqueda de Autor por Id.\n"
+                    + "4) Listar todos los autores registrados.\n"
+                    + "5) Editar autores registrados.\n"
+                    + "6) Eliminar autores registrados.\n"
                     + "7) Registrar un Libro.\n"
-                    + "8) Lista de Libros registrados.\n"
-                    + "9) Buscar Libro Por ISBN.\n"
-                    + "10) Buscar Libro Por Titulo.\n"
-                    + "11) Eliminar Libros registrados.\n"
-                    + "12) Salir.");
+                    + "8) Buscar Libro Por ISBN.\n"
+                    + "9) Buscar Libro Por Titulo.\n"
+                    + "10) Buscar Libro Por Autor.\n"
+                    + "11) Listar todos los libros registrados.\n"
+                    + "12) Actualizar Libros registrados.\n"
+                    + "13) Eliminar Libros registrados.\n"
+                    + "14) Salir.");
 
             System.out.println("Seleccione una opcion: ");
             String respuesta = entrada.next();
@@ -54,7 +56,7 @@ public class MenuServicios {
                     break;
 
                 case "3":
-                   autorServicio.MostrarAutorPorId();
+                    autorServicio.MostrarAutorPorId();
                     Menu();
 
                     break;
@@ -84,31 +86,43 @@ public class MenuServicios {
                     break;
 
                 case "8":
-                    libroServicio.MostrarLibros();
-                    Menu();
-
-                    break;
-
-                case "9":
                     libroServicio.MostrarLibroPorISBN();
                     Menu();
 
                     break;
 
-                case "10":
+                case "9":
                     libroServicio.MostrarLibroPorTitulo();
                     Menu();
 
                     break;
 
+                case "10":
+                    libroServicio.MostrarLibroPorAutor();
+                    Menu();
+
+                    break;
+
                 case "11":
-                    libroServicio.EliminarRegistro();
+                    libroServicio.MostrarLibros();
                     Menu();
 
                     break;
 
                 case "12":
-                    System.out.println("Consulta finalizada.");
+                    libroServicio.EditarLibro();
+                    Menu();
+
+                    break;
+
+                case "13":
+                    libroServicio.EliminarRegistro();
+                    Menu();
+
+                    break;
+
+                case "14":
+                    System.out.println("\n" + "Consulta finalizada.");
                     break;
 
                 default:

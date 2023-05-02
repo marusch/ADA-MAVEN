@@ -24,7 +24,6 @@ public class LibroDao {
             em.getTransaction().rollback();
             throw new Exception("Error al cargar libro");
         }
-
     }
 
     public List<Libro> ObtenerTodos() throws Exception {
@@ -45,6 +44,7 @@ public class LibroDao {
 
         try {
             Libro libro = em.find(Libro.class, isbn);
+
             return libro;
         } catch (Exception e) {
             throw new Exception("Error al buscar libro por isbn");
@@ -56,18 +56,45 @@ public class LibroDao {
 
         try {
 
-            List<Libro> libros = em.createQuery("SELECT a FROM Libro a WHERE a.titulo LIKE :t", Libro.class)
-                    .setParameter("t", titulo)
-                    .getResultList();
+            List<Libro> libros = em.createQuery("SELECT a FROM Libro a WHERE a.titulo LIKE :t",
+                            Libro.class).setParameter("t", titulo).getResultList();
+
             return libros;
 
         } catch (Exception e) {
             throw new Exception("Error al buscar libro por titulo");
         }
+    }
+
+    public List<Libro> ObtenerPorAutor(String autor) throws Exception {
+
+        try {
+
+            List<Libro> libros = em.createQuery("SELECT a FROM Libro a WHERE a.autor.nombreAutor LIKE :autor", Libro.class)
+                    .setParameter("autor", autor)
+                    .getResultList();
+            return libros;
+
+        } catch (Exception e) {
+            throw new Exception("Error al buscar libro por autor");
+        }
 
     }
 
+    public void Actualizar(Libro libro) throws Exception {
 
+        try {
+
+            em.getTransaction().begin();
+            em.merge(libro);
+            em.getTransaction().commit();
+
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            throw new Exception("Error al actualizar libro");
+        }
+
+    }
 
     public void Eliminar(Libro libro) throws Exception {
 
@@ -81,6 +108,7 @@ public class LibroDao {
             em.getTransaction().rollback();
             throw new Exception("Error al eliminar libro");
         }
-
     }
+
+
 }
